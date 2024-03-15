@@ -1,0 +1,274 @@
+/* Add CSS here */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+/*===== VARIABLES CSS =====*/
+
+:root {
+    --h1-fs: 2rem;    --h1-fs-media: 3rem; 
+    --h2-fs: 1.5rem;  --h2-fs-media: 2rem;
+    --h3-fs: 1.3rem;  --h3-fs-media: 1.8rem;
+    --h4-fs: 1.1rem;  --h4-fs-media: 1.5rem;
+    --p-fs: .8rem;    --p-fs-media: 1.1rem;
+    --a-fs: .7rem;    --a-fs-media: 1.1rem;
+    --li-fs: .7rem;   --li-fs-media: 1.1rem;    
+
+    --clr-bg-main: #a0c9f8;
+    --clr-bg-pri: #121637;
+    --clr-bg-sec: #b4d4fb;
+    --clr-acc-main: #00bea6;
+    --clr-acc-pri: #4393f5;
+    --clr-acc-sec:  #3676c4;
+    --clr-acc-thi: #2e67a9;
+    --clr-acc-four: #ad0000;
+    --clr-acc-fif: #e03333;
+    --clr-text-main: #67696a;
+    --clr-text-pri: #36454F;  
+    
+    --shadow-color: #33cbb8;    
+    --main-ff: 'Poppins', sans-serif;
+  }
+
+/*===== BASE =====*/
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--main-ff);
+    font-size: var(--p-fs);
+    background: var(--clr-bg-main);
+    color: var(--clr-text-main);
+    width: 100%;
+    min-height: 100vh;
+}   
+
+h1, h2, h3, h4,
+p, a, li {
+    margin: 0;
+}
+
+h1 {font-size: var(--h1-fs);}
+h2 {font-size: var(--h2-fs);}
+h3 {font-size: var(--h3-fs);}
+h4 {font-size: var(--h4-fs);}
+
+p, a, li {font-size: var(--p-fs);}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-text-main);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+
+    }
+}
+    /* animation: scaleUp 1s ease-in-out;
+    transform-origin: center center; */
+
+/*===== BUTTONS =====*/
+
+.btn {
+    display: inline-block;
+    background-color:  var(--clr-acc-pri);
+    color: #fff;
+    padding: .5rem 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: .2s;
+}
+
+.btn:last-of-type {
+    background-color: transparent;
+    color: var(--clr-acc-pri);
+}
+  
+.btn:first-of-type:hover {
+    background-color: var(--clr-acc-sec);
+    box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
+}
+
+.btn:last-of-type:hover {
+    color: var(--clr-acc-thi);
+}
+
+.btn:active {
+    scale: .97;
+}
+
+/*===== PROJECT CSS =====*/
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    min-width: 400px;
+    width: 90%;
+    position: relative;
+    animation: scaleUp 1s ease-in-out;
+    transform-origin: center center;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 1200px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3rem 1rem;
+}
+
+header a {
+    color: var(--clr-bg-main);
+    font-size: .9rem;
+    position: relative;
+    transition: .3s;
+    overflow: hidden;
+}
+
+header a:hover::after {
+    left: 0;
+}
+
+header a::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 3px;
+    border-radius: 3px;
+    left: -100%;
+    background-color: var(--clr-bg-main);
+    transition: .3s;
+
+}
+
+.slider-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.slider-wrapper i {
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    position: absolute;
+    text-align: center;
+    line-height: 50px;
+    background: var(--clr-bg-main);
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+  }
+
+
+  .slider-.wrapper i:active{
+    transform: translateY(-50%) scale(0.85);
+  }
+  .slider-wrapper i:first-child{
+    left: -22px;
+  }
+  .slider-wrapper i:last-child{
+    right: -22px;
+  }
+  .slider-wrapper .carousel{
+    display: grid;
+  margin: 0 3rem;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 4) - 9px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  border-radius: 8px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel.no-transition {
+    scroll-behavior: auto;
+  }
+  .carousel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+  .carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+  
+  }
+  .carousel :where(.card, svg) {
+    display: flex;
+  }
+  .carousel .card {
+    scroll-snap-align: start;
+    list-style: none;
+    cursor: pointer;
+    border-radius: .5rem;
+    overflow: hidden;
+    display: flex;
+  }
+  .carousel .card img {
+    height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .slider-wrapper .carousel {
+      grid-auto-columns: calc((100% / 3) - 12px);
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .slider-wrapper .carousel {
+      grid-auto-columns: calc((100% / 2) - 9px);
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .slider-wrapper .carousel {
+      grid-auto-columns: 100%;
+    }
+  }
+
